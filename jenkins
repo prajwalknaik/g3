@@ -12,17 +12,17 @@ stages{
 }
 stage('build'){
     steps{
-        sh 'gardle build'
+        sh 'gradle build'
   }
 }
 stage('test'){
     steps{
-        sh 'gardle test'
+        sh 'gradle test'
   }
 }
 stage('run application'){
     steps{
-        sh 'gardle run'
+        sh 'gradle run'
   }
 }
 }
