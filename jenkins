@@ -1,0 +1,39 @@
+pipeline{
+agent any
+tools{
+gradle 'gradle'
+jdk 'jdk'
+}
+stages{
+    stage('checkout'){
+        steps{
+            git branch:'master',url:'https://github.com/prajwalknaik/g3.git'
+  }
+}
+stage('build'){
+    steps{
+        sh 'gardle build'
+  }
+}
+stage('test'){
+    steps{
+        sh 'gardle test'
+  }
+}
+stage('run application'){
+    steps{
+        sh 'gardle run'
+  }
+}
+}
+post{
+    success{
+          echo 'build and deployment successfull'
+}
+    failure{
+          echo 'build failed'
+    }
+}
+}
+
+
